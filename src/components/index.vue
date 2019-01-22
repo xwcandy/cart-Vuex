@@ -20,22 +20,22 @@ export default {
                 '苹果': {
                     name: '苹果',
                     price: 5.9,
-                    imgUrl: require('../assets/h1.jpeg')       
+                    imgUrl: 'https://img.chinatimes.com/newsphoto/2016-06-25/656/20160625003408.jpg'      
                 },
                 '香蕉': {
                     name: '香蕉',
                     price: 3.2,
-                    imgUrl: require('../assets/c2.jpeg')       
+                    imgUrl: 'https://img.ltn.com.tw/Upload/talk/page/800/2016/05/05/phpmEArf7.jpg'       
                 },
                 '橘子': {
                     name: '橘子',
                     price: 3.3,
-                    imgUrl: require('../assets/m3.png')       
+                    imgUrl: 'http://i.epochtimes.com/assets/uploads/2014/12/1407241410262525-600x400.jpg'       
                 },
                 '榴莲': {
                     name: '榴莲',
                     price: 35,
-                    imgUrl: require('../assets/b1.jpg')       
+                    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYXrN1f1TfyRTJLJRhOkeBQfSxnGlBVEOTtjziLdPyVqyaF6ng'       
 
                 }
             }

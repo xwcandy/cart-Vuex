@@ -43,8 +43,8 @@ export default {
         for(const key in this.$store.state.cartData){
             this.cartList.push(this.$store.state.cartData[key]);
         }
-        console.log(this.cartList);
-        console.log(this.$store.state.cartData);
+        // console.log(this.cartList);
+        // console.log(this.$store.state.cartData);
     },
     computed: {
         // 计算总额

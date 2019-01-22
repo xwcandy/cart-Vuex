@@ -7,9 +7,11 @@ Vue.use(Vuex)
 // 创建一个vuex仓库（共享数据的公共仓库）
 const store = new Vuex.Store({
     state: {
-       cartData: {}
+       // 数据常驻
+       cartData: JSON.parse(window.localStorage.getItem('cartData'))||{}
     },
     mutations: {
+      //添加到购物车
       addFruit(state,fruit) {
         console.log(fruit);
         if(state.cartData[fruit.name]){
@@ -23,9 +25,9 @@ const store = new Vuex.Store({
             Vue.set(state.cartData, fruit.name, fruit)
             // state.cartData[fruit.name].num = 1;
             Vue.set(state.cartData[fruit.name], 'num', 1)
-
         }
-      }
+      },
+      
     },
     getters: {
         totalNum(state){
@@ -38,6 +40,11 @@ const store = new Vuex.Store({
         }
     }
 })
+
+// 保存数据，浏览器关闭的时候
+window.onbeforeunload = function(){
+    window.localStorage.setItem('cartData',JSON.stringify(store.state.cartData));
+}
 
 // 暴露出去
 export default store;

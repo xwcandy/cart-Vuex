@@ -27,14 +27,20 @@ const store = new Vuex.Store({
             Vue.set(state.cartData[fruit.name], 'num', 1)
         }
       },
-      
+      //删除商品
+      removeFruit(state,fruit){
+        //从对象中删除一个属性
+        // delete state.cartData[fruit.name];
+        // Vue也提供了一个 delete方法用来移除 对象中的属性 让Vue放弃监听
+        Vue.delete(state.cartData,fruit.name);
+      }
     },
     getters: {
         totalNum(state){
             let num = 0;
             for (let key in state.cartData) {
                 num += state.cartData[key].num;
-                console.log(key);
+                // console.log(key);
             }
             return num;
         }

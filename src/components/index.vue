@@ -18,22 +18,22 @@ export default {
         return {
              fruitList: {
                 '苹果': {
-                    name: '胡歌',
+                    name: '苹果',
                     price: 5.9,
                     imgUrl: require('../assets/h1.jpeg')       
                 },
                 '香蕉': {
-                    name: '嫦娥',
+                    name: '香蕉',
                     price: 3.2,
                     imgUrl: require('../assets/c2.jpeg')       
                 },
                 '橘子': {
-                    name: '毛不易',
+                    name: '橘子',
                     price: 3.3,
                     imgUrl: require('../assets/m3.png')       
                 },
                 '榴莲': {
-                    name: '猪八戒',
+                    name: '榴莲',
                     price: 35,
                     imgUrl: require('../assets/b1.jpg')       
 

@@ -17,7 +17,7 @@
             </el-table-column>
             <el-table-column label="小计" width="200">
               <template slot-scope="scope">
-                  ¥{{parseFloat(scope.row.num * scope.row.price)}}
+                  ¥{{parseInt(scope.row.num * scope.row.price)}}
               </template>
             </el-table-column>
             <el-table-column label="操作" width="200">
@@ -26,6 +26,9 @@
               </template>
             </el-table-column>
         </el-table>
+        <p>总计：¥{{totalPrice}}</p> 
+        <el-button type=danger @click='delAll'>全部删除</el-button>
+
     </div>
 </template>
 
@@ -43,7 +46,18 @@ export default {
         console.log(this.cartList);
         console.log(this.$store.state.cartData);
     },
+    computed: {
+        // 计算总额
+        totalPrice(){
+            let sum = 0;
+            this.cartList.forEach(ele => {
+                sum += ele.num * ele.price;
+            });
+            return sum;
+        }
+    },
     methods: {
+        //删除一个商品
         delOne(data){
             // console.log(data);                        
             this.$confirm('此操作将在购物车删除该商品, 是否继续?', '提示', {
@@ -63,6 +77,15 @@ export default {
                 //取消
                 this.$message({type: 'info', message: '已取消删除'});          
             });                
+        },
+        //删除全部商品
+        delAll(){
+            for(let i=this.cartList.length-1; i>=0; i--){  
+                // 删除vuex中的          
+                this.$store.commit('removeFruit',this.cartList[i]);
+                // 删除本地的
+                this.cartList.splice(i,1);
+            }
         }
     }
 }
